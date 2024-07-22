@@ -1,9 +1,21 @@
 package MetodosEspeciais;
-
 public class Caneta{
+    public int num = 10;
     public String modelo;
     private float ponta;
-
+    private boolean tampada;
+    private String cor;
+    //public Caneta(){
+      //  this.tampar();
+       // this.cor = "Azul";
+    //}
+    public Caneta(String c, String m, float p){
+        this.modelo = m;
+        this.cor = c;
+        this.ponta = p;
+        this.tampar();
+    }
+    
     public String getModelo(){
         return this.modelo;
     }
@@ -15,5 +27,18 @@ public class Caneta{
     }
     public void setPonta(float p){
         this.ponta = p;
+    }
+    public void tampar(){
+        this.tampada = true;
+    }
+    public void destampar(){
+        this.tampada = false;
+    }
+    public void status(){
+        System.out.println("Sobre a caneta:");
+        System.out.println("Modelo: " + this.getModelo());
+        System.out.println("Ponta: " + this.getPonta());
+        System.out.println("Cor: " + this.cor);
+        System.out.println("Tampada: " + this.tampada);
     }
 }
