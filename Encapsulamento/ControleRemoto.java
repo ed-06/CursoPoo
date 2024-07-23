@@ -1,5 +1,5 @@
 package Encapsulamento;
-public class ControleRemoto implements Controlador{
+public class ControleRemoto implements Controlador {
     private int volume;
     private boolean ligado;
     private boolean tocando;
@@ -14,12 +14,12 @@ public class ControleRemoto implements Controlador{
         return volume;
     }
 
-    private int getLigado(){
-        return volume;
+    private boolean getLigado(){
+        return ligado;
     }
 
-    private int getTocando(){
-        return volume;
+    private boolean getTocando(){
+        return tocando;
     }
 
     private void setVolume(int v){
@@ -52,6 +52,7 @@ public class ControleRemoto implements Controlador{
         for (int i = 0; i < this.getVolume(); i += 10){
             System.out.print("|");
         }
+        System.out.println();  // Adicione uma nova linha após o volume
     }
 
     @Override
@@ -62,14 +63,14 @@ public class ControleRemoto implements Controlador{
     @Override
     public void maisVolume() {
         if (this.getLigado()){
-            this.setVolume(this.getVolume()+5);
+            this.setVolume(this.getVolume() + 5);
         }
     }
 
     @Override
     public void menosVolume() {
         if (this.getLigado()){
-            this.setVolume(this.getVolume()-5);
+            this.setVolume(this.getVolume() - 5);
         }
     }
 
@@ -82,7 +83,7 @@ public class ControleRemoto implements Controlador{
 
     @Override
     public void desligarMudo() {
-        if (this.getLigado() && !this.getVolume() > 0){
+        if (this.getLigado() && this.getVolume() == 0){
             this.setVolume(50);
         }
     }
@@ -92,9 +93,8 @@ public class ControleRemoto implements Controlador{
         if (this.getLigado() && !this.getTocando()){
             this.setTocando(true);
         }
-
-
     }
+
     @Override
     public void pause() {
         if (this.getLigado() && this.getTocando()){
