@@ -50,6 +50,7 @@ public class Lutador {
         }
     }
     public void apresentar(){
+        System.out.println();
         System.out.println("CHEGOU A HORA!");
         System.out.println("lutador: " + this.getNome());
         System.out.println("Origem: " + this.getNacionalidade());
@@ -59,6 +60,7 @@ public class Lutador {
         System.out.println("Ganhou: " + this.getVitorias());
         System.out.println("Perdeu: " + this.getDerrotas());
         System.out.println("Empates: " + this.getEmpates());
+        System.out.println();
     }
     public void status(){
         System.out.println(this.getNome());

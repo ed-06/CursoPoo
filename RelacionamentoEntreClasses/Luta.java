@@ -1,50 +1,77 @@
 package RelacionamentoEntreClasses;
-import java.util.random.*;
+import java.util.Random;
 public class Luta {
     private Lutador desafiado;
     private Lutador desafiante; 
     private int rounds;
     private boolean aprovada;
-     
-    public void marcarLuta(Lutador l1, Lutador l2){
-        if (l1.setCategoria() == l2.setCategoria());{
-            
+   
+    public void marcarLuta(Lutador l1, Lutador l2) {
+        l1.setCategoria(l1.getCategoria());
+        l2.setCategoria(l2.getCategoria());
+        if (l1 == null || l2 == null) {
+            this.aprovada = false;
+            System.out.println("Lutadores não podem ser nulos.");
+            return;
         }
-        //mesma categoria
-        //devem ser lutadores diferentes
-        //luta aprovada
-        //vitoria, derrota ou empate.
-        //
-        //
-    }
-    public void lutar(){
-        random 
-        //aproved
-        //apresentar
-        //vencedor aleatorio, zero empate e assim vai
         
+        if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2) {
+            this.aprovada = true;
+            this.desafiado = l1;
+            this.desafiante = l2;
+        } else {
+            this.aprovada = false;
+        }
     }
-    public Luta (String deso, String dete, int r, boolean ap){
-        desafiado = deso;
-        desafiante = dete;
-        rounds = r;
-        aprovada = ap;
-    }
+    
+    public void lutar() {
+        if (this.aprovada) {
+            if (this.desafiado != null && this.desafiante != null) {
+                System.out.println("### DESAFIADO ###");
+                this.desafiado.apresentar(); // linha 26!
+                System.out.println("### DESAFIANTE ###");
+                this.desafiante.apresentar();
+                
+                Random random = new Random();
+                int vencedor = random.nextInt(3); // 0, 1, ou 2
+                
+                switch (vencedor) {
+                    case 0:
+                        System.out.println("Empate!");
+                        this.desafiado.empatarLuta();
+                        this.desafiante.empatarLuta();
+                        break;
+                    case 1:
+                        System.out.println("Vitória do lutador: " + this.desafiado.getNome());
+                        this.desafiado.ganharLuta();
+                        this.desafiante.perderLuta();
+                        break;
+                    case 2:
+                        System.out.println("Vitória do lutador: " + this.desafiante.getNome());
+                        this.desafiado.perderLuta();
+                        this.desafiante.ganharLuta();
+                        break;
+                }
+            } else {
+                System.out.println("Desafiado ou desafiante não foram definidos corretamente.");
+            }
+        } else {
+            System.out.println("A luta não pode acontecer!");
+        }
+    }    
 
-
-    public String getDesafiado(Lutador deso) {
+    public Lutador getDesafiado() {
         return desafiado;
     }
-    public void setDesafiado(Lutador deso) {
+    public void setDesafiado(Lutador desafiado) {
         this.desafiado = desafiado;
     }
-    public String getDesafiante(Lutador dete) {
+    public Lutador getDesafiante() {
         return desafiante;
     }
-    public void setDesafiante(Lutador dete) {
+    public void setDesafiante(Lutador desafiante) {
         this.desafiante = desafiante;
     }
-
     public int getRounds() {
         return rounds;
     }
@@ -54,13 +81,4 @@ public class Luta {
     public void setAprovada(boolean aprovada) {
         this.aprovada = aprovada;
     }
-    
-
-    // rounds
-    // aprovada
-    // esses 4 privados e os metodos publicos
-
-    metodos
-    //marcarLuta()
-    // lutar()
 }
