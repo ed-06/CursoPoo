@@ -1,13 +1,9 @@
 package Aula9b;
 
-public class Publicacao {
-    
+public interface Publicacao {
+    public void abrir();
+    public void fechar();
+    public void folhear(int p);
+    public void avancarPag();
+    public void voltarPag();
 }
-/*
-interface do livro 
-+ abrir()
-+ fechar 
-+ folhear
-+ avançarPag
-+ voltarPAg
- */
