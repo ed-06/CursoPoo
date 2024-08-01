@@ -18,8 +18,9 @@ public class Livro implements Publicacao {
     }
 
     public String detalhes() {
-        return "Livro{" + "titulo=" + titulo + ", autor=" + autor + ", totPaginas=" + totPaginas + 
-        ", pagAtual=" + pagAtual + ", aberto= " + aberto + ", leitor=" + leitor +'}';
+        return "Livro{" + "\n titulo=" + titulo + "\n autor=" + autor + "\n totPaginas=" + totPaginas + 
+        "\n pagAtual=" + pagAtual + "\n aberto= " + aberto + "\n leitor=" + leitor.getNome() + 
+        "\n idade=" + leitor.getIdade() + "\n sexo=" + leitor.getSexo() + '}';
     }
 
     public void setAberto(boolean aberto) {
@@ -56,6 +57,7 @@ public class Livro implements Publicacao {
         return pagAtual;
     }
 
+
     @Override
     public void abrir() {
         this.aberto = true;
@@ -68,7 +70,11 @@ public class Livro implements Publicacao {
 
     @Override
     public void folhear(int p) {
-        this.pagAtual += p;
+        if (p > this.totPaginas){
+            this.pagAtual = 0;
+        } else {
+            this.pagAtual = p;
+        }
     }
 
     @Override
