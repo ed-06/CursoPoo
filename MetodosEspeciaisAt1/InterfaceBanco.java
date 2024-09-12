@@ -40,6 +40,7 @@ public class InterfaceBanco{
                 default:
                     break;
             }
+            leitor.close();
         }
     }
 }

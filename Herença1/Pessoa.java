@@ -10,6 +10,13 @@ public class Pessoa {
         this.sexo = s;
     }
 
+    @Override
+    public String toString() {
+        System.out.println(name);
+        System.out.println(idade);
+        System.out.println(sexo);
+        return super.toString();
+    }
     public void fazerAniv(){
         this.idade ++;
     }
