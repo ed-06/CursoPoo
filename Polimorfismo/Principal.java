@@ -8,5 +8,16 @@ public class Principal{
         Ave a = new Ave();
 
         m.setPeso(35.5f);
+        m.setCorPelo("Marrom");
+        m.alimentar();
+        m.locomover();
+        m.emitirSom();
+
+        a.locomover();
+        Lobo l = new Lobo();
+        l.emitirSom();
+
+        Cachorro c = new Cachorro();
+        c.emitirSom();
     }
 }
